@@ -1,7 +1,7 @@
 
 // import { config } from '../config.js';
 const axios = require('axios');
-axios.defaults.baseURL = 'http://localhost:9000'; //update with dev setting
+axios.defaults.baseURL = 'https://ol-mono.herokuapp.com/'; //update with dev setting
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.withCredentials = true
 
