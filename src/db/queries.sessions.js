@@ -36,6 +36,7 @@ module.exports = {
       ]
     })
     .then((sessions) => {
+      console.log("sessions= ", sessions)
       callback(null, sessions);
     })
     .catch((err) => {
