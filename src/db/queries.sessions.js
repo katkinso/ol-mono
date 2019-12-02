@@ -25,11 +25,11 @@ module.exports = {
   },
   getSessions(req, callback){
     return Session.findAll({
-      // where: {
-      //   dateTime: {
-      //     [Op.gte]: moment()
-      //   }
-      // },
+      where: {
+        dateTime: {
+          [Op.gte]: moment()
+        }
+      },
       order: [
         ['dateTime', 'ASC'],
         ['name', 'DESC']
