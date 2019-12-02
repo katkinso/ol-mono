@@ -50,7 +50,7 @@ class Register extends Component {
 
             <div className="row">
                 <div className="col-sm"></div>
-                <div className="col-sm-4">
+                <div className="col-sm-5">
 
                     { /* CARD START */}
                     <div className="card align-middle shadow-sm bg-white rounded my-5">

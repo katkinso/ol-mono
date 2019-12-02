@@ -7,21 +7,21 @@ body {
   background-color: #F2F5F6; }
 
 header {
-  color: #ffffff;
-  font-size: 0.8rem; }
+  color: #ffffff; }
 
 header.header-top {
   background-color: #037FA7; }
 
 header h1, header h2, header h3 {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-bottom: .7rem; }
 
 header h1 {
   margin-bottom: .2rem; }
 
 header h2 {
-  font-size: 1rem; }
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem; }
 
 header a, header a:hover {
   color: #ffffff;
@@ -36,7 +36,7 @@ header .text-sm-muted {
 
 header .text-sm-muted {
   color: #CAD7DC;
-  font-size: 0.7rem; }
+  font-size: 0.8rem; }
 
 .text-brighter-blue {
   color: #7BD4F1; }
@@ -67,7 +67,7 @@ header.header-sub {
   width: 100%;
   background-color: #037FA7;
   border: #037FA7;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
   height: calc(1.5em + .75rem + 5px);
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2) !important;
@@ -78,7 +78,7 @@ header.header-sub {
 
 .form-control {
   border-radius: 0;
-  font-size: 0.8rem;
+  font-size: 1rem;
   height: calc(1.5em + .75rem + 5px); }
 
 .form-control:focus {
@@ -94,10 +94,7 @@ header.header-sub {
   border-top: 1px solid  #ccc; }
 
 .isRegistered {
-  border-left: 3px solid #0ED9A2; }
-
-.small, small {
-  font-size: 70%; }
+  border-left: 5px solid #0ED9A2; }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }

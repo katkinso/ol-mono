@@ -27,7 +27,7 @@ const SessionListItem = props => {
                 </div>
                 <div className="col-7">
 
-                    <Link className="small font-weight-bold align-top" 
+                    <Link className="font-weight-bold align-top" 
                     to={`/session/${session.id}`}>
                     {session.name}</Link><br/>
 
