@@ -38,6 +38,17 @@ class UserProfile extends Component {
       })
   }
 
+  logout(){
+    api.logout((err,res) => {
+      if (!err){
+        this.props.history.push({
+          pathname: '/authenticate', 
+          state: { message: "logged out" }
+        })
+      }
+    })
+  }
+
 
  render(){
 
