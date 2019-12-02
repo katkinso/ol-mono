@@ -10,6 +10,7 @@ const cors = require("cors");
 
 module.exports = {
   init(app, express){
+    app.set('trust proxy', 1); // add this line
 
 
 
