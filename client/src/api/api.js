@@ -8,7 +8,7 @@ axios.defaults.withCredentials = true
 const authenticate = (data, cb) => {
    axios({
       method: 'post',
-      url: '/users/authenticate',
+      url: '/api/users/authenticate',
       data: data,
    })
    .then((res) => {
@@ -22,7 +22,7 @@ const authenticate = (data, cb) => {
 const me = (cb) => {
    axios({
        method: 'get',
-       url: '/users/me'
+       url: '/api/users/me'
     })
    .then((res) => {
       cb(null,res)
@@ -35,7 +35,7 @@ const me = (cb) => {
 const logout = (cb) => {
    axios({
        method: 'get',
-       url: '/users/logout'
+       url: '/api/users/logout'
     })
    .then((res) => {
       console.log(res)
@@ -49,7 +49,7 @@ const logout = (cb) => {
 const sessions = (query, cb) => {
    axios({
        method: 'get',
-       url: '/sessions'
+       url: '/api/sessions'
     })
    .then((res) => {
       cb(null,res)
@@ -63,7 +63,7 @@ const session = (id, cb) => {
 
    axios({
        method: 'get',
-       url: `/sessions/${id}`
+       url: `/api/sessions/${id}`
     })
    .then((res) => {
        cb(null,res)
