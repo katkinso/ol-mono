@@ -1,6 +1,6 @@
 const Session = require("./models").Session;
 const UserSessions = require("./models").UserSessions;
-const moment = require('moment')
+const moment = require('moment');
 var Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
@@ -37,6 +37,8 @@ module.exports = {
     })
     .then((sessions) => {
       console.log("sessions= ", sessions)
+      console.log("moment= ", moment())
+      
       callback(null, sessions);
     })
     .catch((err) => {
