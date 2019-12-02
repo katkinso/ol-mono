@@ -49,7 +49,7 @@ module.exports = {
       app.use(express.static(path.join(__dirname,'..', '../client/build')))
 
     // Handle React routing, return all requests to React app
-      app.get('/profile', function(req, res) {
+      app.get(['/profile', '/dashboard'], function(req, res) {
         res.sendFile(path.join(__dirname, '..', '../client/build/index.html'))
       });
     }
