@@ -24,6 +24,8 @@ class UserProfile extends Component {
       }
 
       api.me((err,res) => {
+
+        console.log("err", err)
         if (!err){
             const user = res.data;
             this.setState({user})
