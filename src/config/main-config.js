@@ -10,8 +10,11 @@ const cors = require("cors");
 
 module.exports = {
   init(app, express){
+
+
+
     // Serve static files from the React frontend app
-    app.use(express.static(path.join(__dirname,'..', '../client/build')))
+    // app.use(express.static(path.join(__dirname,'..', '../client/build')))
     // Anything that doesn't match the above, send back index.html
     // app.get('*', (req, res) => {
     //   res.sendFile(path.join(__dirname, '..', '../client/build/index.html'))
@@ -40,6 +43,15 @@ module.exports = {
       res.locals.currentUser = req.user;
       next();
     })
+    if (process.env.NODE_ENV === 'production') {
+      // Serve any static files
+      app.use(express.static(path.join(__dirname,'..', '../client/build')))
+
+    // Handle React routing, return all requests to React app
+      app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, '..', '../client/build/index.html'))
+      });
+    }
     app.use(express.static(path.join(__dirname, "..", "assets")));
   }
 };
