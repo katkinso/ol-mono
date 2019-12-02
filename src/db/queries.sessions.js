@@ -36,9 +36,6 @@ module.exports = {
       ]
     })
     .then((sessions) => {
-      console.log("sessions= ", sessions)
-      console.log("moment= ", moment())
-      
       callback(null, sessions);
     })
     .catch((err) => {
