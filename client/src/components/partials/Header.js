@@ -2,13 +2,31 @@ import React, { Component } from "react";
 import { Link, withRouter } from 'react-router-dom'
 import Button from '../ui/Button'
 import utils from '../../utils/utils'
+import api from '../../api/api'
+import Cookies from 'universal-cookie';
+
+
 
 const Header = props => {
 
   if (!utils.checkCookie()) {
+
       props.history.push({
       pathname: '/authenticate',
       state: { error: "access denied" }
+    })
+  }
+
+  const logout = () => {
+
+    api.logout((err,res) => {
+      if (!err){
+        utils.removeCookie()
+        props.history.push({
+          pathname: '/authenticate', 
+          state: { message: "logged out" }
+        })
+      }
     })
   }
 
@@ -29,7 +47,7 @@ const Header = props => {
               <span className="text-sm-muted font-weight-bold">{user.email}</span>
             </span>
 
-            <Button action={props.logout} type="button" text="logout" />
+            <Button action={() => logout()} type="button" text="logout" />
           </div>
         </div>
       </div>

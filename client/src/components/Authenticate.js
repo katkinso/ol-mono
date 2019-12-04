@@ -46,14 +46,14 @@ class Register extends Component {
 
     return (
 
-        <div className="container login">
+        <div className="container login mt-5">
 
             <div className="row">
                 <div className="col-sm"></div>
                 <div className="col-sm-5">
 
                     { /* CARD START */}
-                    <div className="card align-middle shadow-sm bg-white rounded my-5">
+                    <div className="card align-middle shadow-sm bg-white rounded">
                     <div className="card-body p-5">
                     
                     <div className="mx-auto pb-3 logo">
