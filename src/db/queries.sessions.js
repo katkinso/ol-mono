@@ -52,18 +52,48 @@ module.exports = {
     })
   },
   registration(newUserSession, callback){
+    return UserSessions.findAll({
+      where: {
+        userId: newUserSession.userId,
+        sessionId: newUserSession.sessionId
+      }
+    }).then((record) => {
+      //check user not already registered.
+      if (!record.length){
 
-    return UserSessions.create(newUserSession)
-    .then((session) => {
-      callback(null, session);
-    })
-    .catch((err) => {
-      callback(err);
+          UserSessions.create(newUserSession)
+          .then((session) => {
+            callback(null, session);
+          })
+          .catch((err) => {
+            callback(err);
+          })
+
+      }else{
+          callback({registered:true});
+      }
+    }).catch((err) => {
+         callback(err);
     })
   },
   delete(id, callback){
     return Session.destroy({
       where: { id }
+    })
+    .then((deletedRecordsCount) => {
+      console.log(deletedRecordsCount)
+      callback(null, deletedRecordsCount);
+    })
+    .catch((err) => {
+      callback(err);
+    })
+  },
+  deRegistration(userSession, callback){
+    return UserSessions.destroy({
+      where: {
+        userId: userSession.userId,
+        sessionId: userSession.sessionId
+      }
     })
     .then((deletedRecordsCount) => {
       console.log(deletedRecordsCount)

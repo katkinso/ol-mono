@@ -1,5 +1,5 @@
 
-// import { config } from '../config.js';
+// import { config } from '../config.js'; TODO XXXX
 const axios = require('axios');
 if (process.env.environment === 'local'){
    axios.defaults.baseURL = 'http://localhost:9000'; //update with dev setting
@@ -76,8 +76,46 @@ const session = (id, cb) => {
    })
 }
 
+const sessionRegistration = (userId, sessionId, cb) => {
+   
+   axios({
+      method: 'post',
+      url: `/api/sessions/register/${sessionId}`,
+      data: {userId},
+   })
+   .then((res) => {
+      cb(null,res)
+   })
+   .catch(function (err) {
+      cb(err)
+   })
+}
 
-export default { authenticate, me, logout, sessions, session }
+const sessionDeRegistration = (userId, sessionId, cb) => {
+   
+   axios({
+      method: 'post',
+      url: `/api/sessions/deregister/${sessionId}`,
+      data: {userId},
+   })
+   .then((res) => {
+      cb(null,res)
+   })
+   .catch(function (err) {
+      cb(err)
+   })
+}
+
+
+export default { 
+   authenticate, 
+   me, 
+   logout, 
+   sessions, 
+   session, 
+   sessionRegistration, 
+   sessionDeRegistration 
+}
 
 
 

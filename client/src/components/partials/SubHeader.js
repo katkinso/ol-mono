@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import utils from '../../utils/utils'
 import { Link } from 'react-router-dom'
 
-const Header = props => {
+const SubHeader = props => {
 
     const { nextSession } = props;
     const nextSessionDateTime = nextSession ? utils.utcToLocal(nextSession.dateTime) : ""
@@ -23,20 +23,16 @@ const Header = props => {
         return (<h2 className="text-brighter-blue">No upcoming sessions</h2>)
     }
 
-    
-
     return (
         <header className="py-3 header-sub border-bottom">
             <div className="container">
                 <div className="row flex-nowrap justify-content-between align-items-center">
-                    <div className="col-4 pt-1">
-                        
+                    <div className="col-8 pt-1">
                         {headline()}
-                        
                     </div>
                     <div className="col-4 d-flex justify-content-end align-items-center">
                         <span className="font-weight-bold">
-                        {nextSessionDateTime}
+                            {nextSessionDateTime}
                         </span>
                     </div>
                 </div>
@@ -45,4 +41,4 @@ const Header = props => {
     )
 }
 
-export default Header
+export default SubHeader

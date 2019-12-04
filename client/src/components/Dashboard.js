@@ -28,12 +28,6 @@ class Dashboard extends Component {
           notification: "Remember, Thursday is a holiday! Don’t forget to submit your answers to the latest survey"
       };     
 
-      if (!utils.checkCookie()) {
-          props.history.push({
-          pathname: '/authenticate',
-          state: { error: "access denied" }
-        })
-      }
 
       api.me((err,res) => {
         if (!err){
@@ -60,17 +54,6 @@ class Dashboard extends Component {
 
   }
 
-  logout(){
-    api.logout((err,res) => {
-      if (!err){
-        this.props.history.push({
-          pathname: '/authenticate', 
-          state: { message: "logged out" }
-        })
-      }
-    })
-  }
-
 
  render(){
 
@@ -78,7 +61,7 @@ class Dashboard extends Component {
 
     return (
         <div className="container-fluid px-0 pb-5">
-            <Header user={user} logout={() => this.logout()}/>
+            <Header user={user} />
             <SubHeader nextSession={user.nextSession} />
             <MiniHeader notification={notification} />
             <SessionList sessions={sessions} userSessions={user.sessions}  />

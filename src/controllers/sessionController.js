@@ -45,7 +45,7 @@ module.exports = {
 
         let newUserSession = {
             userId: req.body.userId,
-            sessionId: req.body.sessionId
+            sessionId: req.params.id
         };
 
         sessionQueries.registration(newUserSession, (err, session) => {
@@ -63,6 +63,21 @@ module.exports = {
                 res.json({error: "Session not found"})
             } else {
                 res.json(session);
+            }
+        });
+    },
+    deRegistration(req, res, next){
+
+        let userSession = {
+            userId: req.body.userId,
+            sessionId: req.params.id
+        };
+
+        sessionQueries.deRegistration(userSession, (err, userSession) => {
+            if(err){
+                res.json({error: "Session not found"})
+            } else {
+                res.json(userSession);
             }
         });
     },
