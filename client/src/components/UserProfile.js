@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
-import Cookies from 'universal-cookie';
-import { Link } from "react-router-dom";
-import utils from '../utils/utils'
 import api from '../api/api'
 import Header from './partials/Header'
 import MiniHeader from './partials/MiniHeader'

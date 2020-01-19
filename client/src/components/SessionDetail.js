@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
-import Cookies from 'universal-cookie';
-import { Link } from "react-router-dom";
 import api from '../api/api'
-import utils from '../utils/utils'
 import Header from './partials/Header'
 import SubHeaderSession from './partials/SubHeaderSession'
 
@@ -27,7 +24,7 @@ class SessionDetail extends Component {
         sessionId: this.props.match.params.id
      };     
       
-     const sessionId = this.props.match.params.id
+    //  const sessionId = this.props.match.params.id
       api.session(this.state.sessionId, (err,res) => {
         if (!err){
             const session = res.data;
@@ -40,7 +37,7 @@ class SessionDetail extends Component {
             let user = res.data;
             this.setState({user})
 
-            let foundSession = user.sessions.find(session => session.id == this.state.sessionId)
+            let foundSession = user.sessions.find(session => session.id === this.state.sessionId)
             if (foundSession.id) {user.isRegistered = true};
             
             this.setState({user}) 
