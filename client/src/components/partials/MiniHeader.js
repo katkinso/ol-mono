@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import Button from '../ui/Button'
+import React from "react";
 
 const Header = props => {
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import utils from '../../utils/utils'
 import { Link } from 'react-router-dom'
 

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import api from '../api/api'
-import utils from '../utils/utils'
 import Header from './partials/Header'
 import SubHeader from './partials/SubHeader'
 import MiniHeader from './partials/MiniHeader'
@@ -35,7 +34,7 @@ class Dashboard extends Component {
             const userSessions = []
 
             user.sessions.map((session) => {
-              userSessions.push(session.id);
+              return userSessions.push(session.id);
             })
 
             user.nextSession = user.sessions[0]; //latest date

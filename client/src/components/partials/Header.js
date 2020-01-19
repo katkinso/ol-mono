@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link, withRouter } from 'react-router-dom'
 import Button from '../ui/Button'
 import utils from '../../utils/utils'
 import api from '../../api/api'
-import Cookies from 'universal-cookie';
 
 
 
