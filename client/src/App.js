@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
-import Authenticate from './components/Authenticate';
+import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import NotFound from './components/404';
 import SessionDetail from './components/SessionDetail';
@@ -15,9 +15,10 @@ class App extends Component {
       return (
         <BrowserRouter>
             <Switch>
-              <Route exact path="/authenticate"><Authenticate/></Route>
+              <Route exact path="/authenticate"><Login/></Route>
+              <Route exact path="/register"><Login/></Route>
               <Route exact path="/dashboard"><Dashboard/></Route>
-              <Route exact path="/"><Authenticate/></Route>
+              <Route exact path="/"><Login/></Route>
               <Route path="/session/:id"><SessionDetail/></Route>
               <Route path="/profile"><UserProfile/></Route>
               <Route path="/"><NotFound/></Route>
