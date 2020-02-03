@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextInput = props => {
+const EmailInput = props => {
     
     let { id, 
         className, 
@@ -13,10 +13,10 @@ const TextInput = props => {
         messageClassName } = props;
 
     return (
-        <div className="input-group pt-3">
+        <div className="input-group">
                 <input 
                     id={id}
-                    type='text'
+                    type='email'
                     className={className}
                     placeholder={placeholder}
                     value={value}
@@ -32,5 +32,5 @@ const TextInput = props => {
     )
 }
 
-export default TextInput
+export default EmailInput
 

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withRouter, Link } from 'react-router-dom';
 import Authenticate from './partials/Authenticate';
 import Register from './partials/Register';
-import api from '../api/api';
 
 class Login extends Component {
 
@@ -10,13 +9,8 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            email: "",
-            password: "",
-            error: "",
-            message: "",
-            isRegistering: false,
-            firstName: "",
-            lastName: ""
+           isRegistering: false,
+           error: ""
         };
     }
 
@@ -29,53 +23,6 @@ class Login extends Component {
             isRegistering: !prevState.isRegistering
         }));
     }
-
-    handleInputChange(e) {
-        const value = e.target.value;
-        const key = e.target.id;
-        this.setState({ [key]: value });
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-
-        if (this.state.isRegistering){
-
-            api.register({
-                "firstName": this.state.firstName,
-                "lastName": this.state.lastName,
-                "email": this.state.email,
-                "password": this.state.password,
-                "passwordConfirmation": this.state.password,
-            }, (err, res) => {
-                if (!err) {
-                    this.props.history.push('/dashboard')
-                } else {
-                    this.setState({
-                        error: "that's not right"
-                    })
-                }
-            })
-
-        }else{
-
-            api.authenticate({
-                "email": this.state.email,
-                "password": this.state.password,
-            }, (err, res) => {
-                if (!err) {
-                    this.props.history.push('/dashboard')
-                } else {
-                    this.setState({
-                        error: "that's not right"
-                    })
-                }
-            })
-
-        }//else
-
-    }
-
 
     render() {
 
@@ -101,31 +48,16 @@ class Login extends Component {
                                 <p className="text-warning">{this.state.error}</p>
 
                                 {this.state.isRegistering ?
-                                    (
-                                        <Register
-                                            firstName={this.state.firstName}
-                                            lastName={this.state.lastName}
-                                            password={this.state.password}
-                                            email={this.state.email}
-                                            handleInputChange={(e) => this.handleInputChange(e)}
-                                            handleSubmit={(e) => this.handleSubmit(e)}
-                                        />
-                                    )
+                                    ( <Register {...this.state} /> )
                                     :
-                                    (
-                                        <Authenticate
-                                            email={this.state.email}
-                                            password={this.state.password}
-                                            handleInputChange={(e) => this.handleInputChange(e)}
-                                            handleSubmit={(e) => this.handleSubmit(e)}
-                                        />
-                                    )
+                                    ( <Authenticate {...this.state} /> )
                                 }
+                                <br></br>
                                 <Link
                                     className="font-weight-bold text-white py-3"
                                     to={registerLink}
                                     onClick={() => this.setAuthStatus()}
-                                >
+                                    >
                                     {registerText}
                                 </Link>
                             </div>

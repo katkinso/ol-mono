@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, withRouter } from 'react-router-dom'
-import Button from '../ui/Button'
 import utils from '../../utils/utils'
 import api from '../../api/api'
 
@@ -46,7 +45,13 @@ const Header = props => {
               <span className="text-sm-muted font-weight-bold">{user.email}</span>
             </span>
 
-            <Button action={() => logout()} type="button" text="logout" />
+            <button 
+                type="button"
+                id="logout"
+                text="logout"
+                className="btn btn-primary mt-3"
+                onClick={logout}
+            >LOG OUT</button>
           </div>
         </div>
       </div>

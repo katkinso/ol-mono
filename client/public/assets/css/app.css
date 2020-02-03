@@ -6,6 +6,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #ffffff; }
 
+.login .invalid-feedback {
+  color: #ffc107;
+  font-size: 0.9rem; }
+
+.login .valid-feedback {
+  display: block;
+  font-size: 0.9rem; }
+
+.login .btn-primary:disabled {
+  opacity: 1;
+  background-color: #9198A4;
+  color: #CAD7DC; }
+
 header {
   color: #ffffff; }
 
