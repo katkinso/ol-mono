@@ -21,6 +21,20 @@ const authenticate = (data, cb) => {
    })
 }
 
+const register = (data, cb) => {
+   axios({
+      method: 'post',
+      url: '/api/users/register',
+      data: data,
+   })
+   .then((res) => {
+      cb(null,res)
+   })
+   .catch(function (err) {
+      cb(err)
+   })
+}
+
 const me = (cb) => {
    axios({
        method: 'get',
@@ -86,9 +100,10 @@ const sessionRegistration = (userId, sessionId, cb) => {
    .then((res) => {
       cb(null,res)
    })
-   .catch(function (err) {
+   .catch((err) => {
       cb(err)
    })
+
 }
 
 const sessionDeRegistration = (userId, sessionId, cb) => {
@@ -109,6 +124,7 @@ const sessionDeRegistration = (userId, sessionId, cb) => {
 
 export default { 
    authenticate, 
+   register,
    me, 
    logout, 
    sessions, 

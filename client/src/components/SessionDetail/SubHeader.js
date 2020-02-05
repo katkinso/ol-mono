@@ -1,8 +1,7 @@
 import React from "react";
 import utils from '../../utils/utils'
-import Button from '../ui/Button'
 
-const SubHeaderSession = props => {
+const SubHeader = props => {
 
     const { session, toggleRegistration, user } = props;
     const sessionDateTime = session ? utils.utcToLocal(session.dateTime) : ""
@@ -17,10 +16,12 @@ const SubHeaderSession = props => {
                     </div>
                     <div className="col-4 d-flex justify-content-end align-items-center">
                         <span className="font-weight-bold">
-                            <Button type="submit" 
-                            text={user.isRegistered ? "YOU'RE GOING" : "SIGN ME UP!"} 
-                            action={(e) => toggleRegistration(e)} 
-                            for="login"></Button>
+                        <button 
+                        onClick={(e) => toggleRegistration(e)} 
+                        className="btn btn-primary mt-3 w-100">
+                        {user.isRegistered ? "UNREGISTER" : "SIGN ME UP!"} 
+                        </button>
+                            
                         </span>
                     </div>
                 </div>
@@ -29,4 +30,9 @@ const SubHeaderSession = props => {
     )
 }
 
-export default SubHeaderSession
+export default SubHeader
+
+// <Button type="submit" 
+//                             text={user.isRegistered ? "YOU'RE GOING" : "SIGN ME UP!"} 
+//                             action={(e) => toggleRegistration(e)} 
+//                             for="login"></Button>

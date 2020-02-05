@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
-import api from '../api/api'
-import Header from './partials/Header'
-import SubHeader from './partials/SubHeader'
-import MiniHeader from './partials/MiniHeader'
-import SessionList from './partials/SessionList'
+import api from '../../api/api'
+import Header from '../Shared/Header'
+import MiniHeader from '../Shared/MiniHeader'
+import SubHeader from './SubHeader'
+import SessionList from './SessionList'
 
 
 class Dashboard extends Component {
@@ -26,6 +26,8 @@ class Dashboard extends Component {
           sessions: [],
           notification: "Remember, Thursday is a holiday! Don’t forget to submit your answers to the latest survey"
       };     
+
+
 
 
       api.me((err,res) => {
@@ -51,7 +53,36 @@ class Dashboard extends Component {
         }
       })
 
+  
+      
+   
   }
+
+  toggleRegistration(e) {
+    e.preventDefault();
+
+    let { user, sessionId } = this.state;
+
+    if (!user.isRegistered){
+
+      api.sessionRegistration(user.id, sessionId, (err,res) => {
+        if (err){ console.log(err) }
+      })
+      user.isRegistered = true; 
+    }else{
+
+      api.sessionDeRegistration(user.id, sessionId, (err,res) => {
+        if (err){ console.log(err) }
+      })  
+      user.isRegistered = false; 
+    }
+
+    this.setState({ user })
+
+}
+
+
+
 
 
  render(){
@@ -63,7 +94,7 @@ class Dashboard extends Component {
             <Header user={user} />
             <SubHeader nextSession={user.nextSession} />
             <MiniHeader notification={notification} />
-            <SessionList sessions={sessions} userSessions={user.sessions}  />
+            <SessionList sessions={sessions} userSessions={user.sessions} />
         </div>
       
     );

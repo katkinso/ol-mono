@@ -43,6 +43,8 @@ module.exports = {
   },
   registration(req, res, next){
 
+        console.log(req)
+
         let newUserSession = {
             userId: req.body.userId,
             sessionId: req.params.id

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
-import api from '../api/api'
-import Header from './partials/Header'
-import MiniHeader from './partials/MiniHeader'
+import api from '../../api/api'
+import Header from '../Shared/Header'
+import MiniHeader from '../Shared/MiniHeader'
 
 class UserProfile extends Component {
 
