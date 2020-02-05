@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Link } from 'react-router-dom';
-import Authenticate from './partials/Authenticate';
-import Register from './partials/Register';
+import Authenticate from './Authenticate';
+import Register from './Register';
 
 class Login extends Component {
 

@@ -1,9 +1,9 @@
 import React, { useReducer } from "react";
-import PasswordInput from '../ui/PasswordInput'
-import EmailInput from '../ui/EmailInput'
-import EmailValidator from "email-validator";
-import api from '../../api/api';
 import { withRouter } from 'react-router-dom';
+import PasswordInput from '../Widgets/PasswordInput'
+import EmailInput from '../Widgets/EmailInput'
+import EmailValidator from "email-validator";
+import api from './api';
 
 const Authenticate = props => {
         

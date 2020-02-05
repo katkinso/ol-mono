@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import NotFound from './components/404';
-import SessionDetail from './components/SessionDetail';
-import UserProfile from './components/UserProfile';
+import Login from './components/Login/index';
+import Dashboard from './components/Dashboard/index';
+import NotFound from './components/404/index';
+import SessionDetail from './components/SessionDetail/index';
+import UserProfile from './components/UserProfile/index';
 
 
 class App extends Component {

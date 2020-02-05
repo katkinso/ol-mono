@@ -6,8 +6,10 @@ import api from '../../api/api'
 
 
 const Header = props => {
-
+  // console.log(utils.checkCookie())
   if (!utils.checkCookie()) {
+
+      
 
       props.history.push({
       pathname: '/authenticate',

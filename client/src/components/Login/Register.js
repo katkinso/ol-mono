@@ -1,10 +1,10 @@
 import React, { useReducer } from "react";
-import TextInput from '../ui/TextInput'
-import PasswordInput from '../ui/PasswordInput'
-import EmailInput from '../ui/EmailInput'
-import EmailValidator from "email-validator";
-import api from '../../api/api';
 import { withRouter } from 'react-router-dom';
+import TextInput from '../Widgets/TextInput'
+import PasswordInput from '../Widgets/PasswordInput'
+import EmailInput from '../Widgets/EmailInput'
+import EmailValidator from "email-validator";
+import api from './api';
 
 
 const Register = props => {
@@ -214,7 +214,6 @@ const Register = props => {
         )
 };
 
-// export default Register
 export default withRouter(Register);
 
 

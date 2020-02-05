@@ -100,9 +100,10 @@ const sessionRegistration = (userId, sessionId, cb) => {
    .then((res) => {
       cb(null,res)
    })
-   .catch(function (err) {
+   .catch((err) => {
       cb(err)
    })
+
 }
 
 const sessionDeRegistration = (userId, sessionId, cb) => {
